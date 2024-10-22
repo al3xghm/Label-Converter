@@ -3,24 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Converter Mondial Relay label to print MunByn</title>
+    <title>Converter Mondial Relay and Vinted Go label to MunByn format</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet"/>
     <script async src="https://docs.opencv.org/3.4.0/opencv.js"></script>
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center">Converter Mondial Relay label to print MunByn</h1>
+        <h1 class="text-center">Converter Mondial Relay & Vinted Go label to print MunByn</h1>
+            <div class="form-group">
+                <label for="labelType">Choose label type :</label>
+                <select id="labelType" class="form-control">
+                    <option value="mondial">Mondial Relay</option>
+                    <option value="vinted">Vinted Go</option>
+                </select>
+            </div>
         <div class="form-group">
-            <label for="upload">Import image :</label>
-            <button id="generate" class="btn btn-primary" style="display:none;">Generate label cropped</button>
-            <br>
+            <label for="upload">Upload image :</label>
             <input type="file" class="form-control-file" id="upload" accept="image/*">
             <br>
+            <button id="generate" class="btn btn-primary" style="display:none;">Generate label</button>
+            <br>
             <div id="shareLinkContainer" style="display:none;">
-                <label for="shareLink">Lien de partage :</label>
+                <label for="shareLink">Share link :</label>
                 <input type="text" class="form-control" id="shareLink" readonly>
                 <br>
-                <button id="copyLinkButton" class="btn btn-secondary" style="display:none;">Copier le lien</button>
+                <button id="copyLinkButton" class="btn btn-secondary" style="display:none;">Copy link</button>
             </div>
             <br>
             <canvas id="canvas" class="border"></canvas>
@@ -28,6 +36,7 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="https://unpkg.com/cropperjs"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
